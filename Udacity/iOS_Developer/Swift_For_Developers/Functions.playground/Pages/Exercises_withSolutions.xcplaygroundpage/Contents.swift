@@ -18,6 +18,7 @@ var nonsenseArray = ["bungalow", "buffalo", "indigo", "although", "Ontario", "al
 
 // Solution
 func combineLastCharacters(_ wordArray:[String]) -> String {
+
     var newWord = ""
     for var word in wordArray {
         let lastCharacter = word.remove(at: word.index(before: word.endIndex))
@@ -40,6 +41,7 @@ combineLastCharacters(nonsenseArray)
 let digits = CharacterSet.decimalDigits
 // Solution
 func digitsOnly(_ word: String) -> Bool {
+
     for character in word.unicodeScalars {
         if !digits.contains(UnicodeScalar(character.value)!) {
             return false
@@ -55,9 +57,10 @@ let dirtyWordsArray = ["phooey", "darn", "drat", "blurgh", "jupiters", "argh", "
 
 // Solution
 func cleanUp(_ dirtyArray: [String]) -> [String] {
+
     var cleanArray = [String]()
     for word in dirtyArray {
-        if word.characters.count == 4 {
+        if word.count == 4 {
         } else {
             cleanArray.append(word)
         }
@@ -71,10 +74,18 @@ cleanUp(dirtyWordsArray)
 //:
 //: Write a method, filterByDirector, that belongs to the MovieArchive class.  This method should take in a dictionary of movie titles and a string representing the name of a director and return an array of movies created by that director. You can use the movie dictionary below. To test your method, instantiate an instance of the MovieArchive class and call filterByDirector from that instance.
 
-var movies:Dictionary<String,String> = [ "Boyhood":"Richard Linklater","Inception":"Christopher Nolan", "The Hurt Locker":"Kathryn Bigelow", "Selma":"Ava Du Vernay", "Interstellar":"Christopher Nolan"]
+var movies : Dictionary<String, String> = [
+    "Boyhood" : "Richard Linklater",
+    "Inception" : "Christopher Nolan",
+    "The Hurt Locker" : "Kathryn Bigelow",
+    "Selma" : "Ava Du Vernay",
+    "Interstellar" : "Christopher Nolan"
+]
 
 class MovieArchive {
+
     func filterByDirector(_ currentDirector:String, movies: Dictionary<String, String>) -> [String] {
+
         var filteredArray = [String]()
         for (movie, director) in movies {
             if director == currentDirector {
