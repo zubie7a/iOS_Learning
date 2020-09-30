@@ -37,7 +37,7 @@ let remainder = treats % students // Modulo (remainder) operator
 var tLength: Double = 10
 var tWidth: Double = 5
 
-//a^2 + b^2 = c^2
+// a^2 + b^2 = c^2
 // 10^2 + 5^2 = 11.180^2
 // 100 + 25 = 125
 let areaTriangle = sqrt(pow(tLength, 2) + pow(tWidth, 2))
@@ -56,4 +56,17 @@ let areaTriangle = sqrt(pow(tLength, 2) + pow(tWidth, 2))
  5. Create a constant called `taxes` that stores the total taxes to be charged using the tax rate (should equal around $4.56)
  5. Create a constant called `finalPrice` that applies the 7.75% tax rate to priceAfterDicscount.  (should equal around $63.43)
  */
-
+let priceBread = 10.75
+let priceSodas = 11.75
+let priceEggs = 10.0
+let priceMilk = 10.35
+let priceSalad = 15.45
+let priceCheese = 20.20
+let subtotal = priceBread + priceSodas + priceEggs + priceMilk + priceSalad + priceCheese
+print(subtotal)
+let coupon = 0.25
+let priceAfterDiscoubt = subtotal * (1 - coupon)
+print(priceAfterDiscoubt)
+let taxes = 7.75
+let total = priceAfterDiscoubt * (1 + (taxes / 100))
+print(total)
