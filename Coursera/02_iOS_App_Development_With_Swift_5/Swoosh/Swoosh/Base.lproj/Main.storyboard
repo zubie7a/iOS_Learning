@@ -112,6 +112,9 @@
                                         <state key="normal" title="Mens">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onMensTapped:" destination="0jd-Z3-dx9" eventType="touchUpInside" id="OFC-dQ-BA9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UL-ws-CLI" customClass="BorderButton" customModule="Swoosh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="394" height="40"/>
@@ -120,6 +123,9 @@
                                         <state key="normal" title="Womens">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onWomensTapped:" destination="0jd-Z3-dx9" eventType="touchUpInside" id="GlX-RJ-B2R"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-5I-Opy" customClass="BorderButton" customModule="Swoosh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="394" height="40"/>
@@ -128,6 +134,9 @@
                                         <state key="normal" title="Co-ed">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCoedsTapped:" destination="0jd-Z3-dx9" eventType="touchUpInside" id="4go-gV-Ch7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cps-8e-6bg" customClass="BorderButton" customModule="Swoosh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="150" width="394" height="40"/>
@@ -189,6 +198,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="mub-mj-aHp"/>
                     <connections>
+                        <outlet property="coedsButton" destination="ShG-5I-Opy" id="yVZ-Ai-Ipo"/>
+                        <outlet property="mensButton" destination="ruS-K4-m6X" id="fNJ-J0-CIy"/>
+                        <outlet property="nextButton" destination="k57-fi-evr" id="lc7-7Z-h2J"/>
+                        <outlet property="womensButton" destination="3UL-ws-CLI" id="ngu-97-65S"/>
                         <segue destination="r0E-r6-P7R" kind="show" identifier="skillVCSegue" id="h2p-02-0Sf"/>
                     </connections>
                 </viewController>
@@ -265,7 +278,7 @@
                                 <rect key="frame" x="10" y="686" width="394" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.24561215750000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Finish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>

@@ -10,16 +10,74 @@ import UIKit
 
 class LeagueVC: UIViewController {
 
+    @IBOutlet weak var nextButton: BorderButton!
+
+    @IBOutlet weak var mensButton: BorderButton!
+    @IBOutlet weak var womensButton: BorderButton!
+    @IBOutlet weak var coedsButton: BorderButton!
+
+    // Implicitly unwrapped optional. We don't want this code
+    // to even run unless there's a player.
+    var player : Player!
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+
+        // Disable the button by default, can't press unless
+        // some of the previous options is selected.
+        nextButton.isEnabled = false
+
+        // Initialize the struct.
+        player = Player()
     }
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+
+    func setDesiredLeague(_ league : String) {
+
+        player.desiredLeague = league
+        nextButton.isEnabled = true
+
+        switch league {
+        case "mens":
+            mensButton.layer.borderColor = UIColor.red.cgColor
+            womensButton.layer.borderColor = UIColor.white.cgColor
+            coedsButton.layer.borderColor = UIColor.white.cgColor
+            nextButton.layer.borderColor = UIColor.green.cgColor
+        case "womens":
+            mensButton.layer.borderColor = UIColor.white.cgColor
+            womensButton.layer.borderColor = UIColor.red.cgColor
+            coedsButton.layer.borderColor = UIColor.white.cgColor
+            nextButton.layer.borderColor = UIColor.green.cgColor
+        case "coeds":
+            mensButton.layer.borderColor = UIColor.white.cgColor
+            womensButton.layer.borderColor = UIColor.white.cgColor
+            coedsButton.layer.borderColor = UIColor.red.cgColor
+            nextButton.layer.borderColor = UIColor.green.cgColor
+        default:
+            nextButton.isEnabled = false
+        }
+
+    }
+    @IBAction func onMensTapped(_ sender: Any) {
+
+        setDesiredLeague("mens")
+    }
+
+    @IBAction func onWomensTapped(_ sender: Any) {
+
+        setDesiredLeague("womens")
+    }
+
+    @IBAction func onCoedsTapped(_ sender: Any) {
+
+        setDesiredLeague("coeds")
     }
 
     @IBAction func onNextTapped(_ sender: Any) {
@@ -49,4 +107,8 @@ class LeagueVC: UIViewController {
         // and it will automatically know it has to go back to the
         // view of this controller.
     }
+
+    // Whenever moving data around view controllers, ALWAYS put it in
+    // a struct or a class, never pass around multiple variables between
+    // view controllers. Send it like a package!
 }

@@ -7,7 +7,7 @@ class BorderButton: UIButton {
         super.awakeFromNib()
         // This can't be done on interface builder so need to
         // do this programatically.
-        layer.borderWidth = 2.0
+        layer.borderWidth = 0.5
         layer.borderColor = UIColor.white.cgColor
     }
 }
