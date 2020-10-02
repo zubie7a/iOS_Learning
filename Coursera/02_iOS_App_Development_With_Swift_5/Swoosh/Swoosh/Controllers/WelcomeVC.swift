@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeVC: UIViewController {
 
     @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var swoosh: UIImageView!
@@ -23,6 +23,12 @@ class ViewController: UIViewController {
 
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        // To hide the ugly navigation bar, because we need to use a
+        // NavigationController to move between ViewControllers easily
+        // with a proper transition (not modal or popover), however we
+        // will need to define our custom functions to go back.
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         // Reset the UI Elements constraints with the view's current size.
         setUIElementsConstraints(view.frame.size)
@@ -98,5 +104,23 @@ class ViewController: UIViewController {
         // fills the screen, perhaps the image will be cropped a little.
 
     }
+
+    // This function was linked by dragging the "Back" button on the
+    // second storyboard to the "Exit" icon of that ViewController,
+    // then this function (which had to be defined previously) will
+    // appear to be linked!
+    @IBAction func unwindFromSkillVC(unwindSegue: UIStoryboardSegue) {
+        // The function name doesn't matter, the parameter name also,
+        // the only thing that matters is the type (UIStoryboardSegue)
+        // and it will automatically know it has to go back to the
+        // view of this controller.
+    }
+
+    // This will hide the status bar to make the app fullscreen!
+    override var prefersStatusBarHidden: Bool {
+
+        return true
+    }
+
 }
 
