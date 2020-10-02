@@ -109,7 +109,7 @@ class WelcomeVC: UIViewController {
     // second storyboard to the "Exit" icon of that ViewController,
     // then this function (which had to be defined previously) will
     // appear to be linked!
-    @IBAction func unwindFromSkillVC(unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindFromLeagueVC(unwindSegue: UIStoryboardSegue) {
         // The function name doesn't matter, the parameter name also,
         // the only thing that matters is the type (UIStoryboardSegue)
         // and it will automatically know it has to go back to the
