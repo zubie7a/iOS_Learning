@@ -44,6 +44,8 @@ class LeagueVC: UIViewController {
         player.desiredLeague = league
         nextButton.isEnabled = true
 
+        // So we can highlight with a different color the last
+        // selected button and also "greenlighting" next button.
         switch league {
         case "mens":
             mensButton.layer.borderColor = UIColor.red.cgColor
@@ -111,4 +113,18 @@ class LeagueVC: UIViewController {
     // Whenever moving data around view controllers, ALWAYS put it in
     // a struct or a class, never pass around multiple variables between
     // view controllers. Send it like a package!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        // It will try and run this statement. If it fails, the
+        // if statement will fail. The failure can happen in "as?"
+        // `destination` is a generic ViewController, but we can
+        // "downcast" it to the children type and see if it works.
+        if let skillVC = segue.destination as? SkillVC {
+            skillVC.player = player
+        }
+
+        // `prepare(for segue` will always always ALWAYS A L W A Y S
+        // be called before `viewDidLoad` on the destination VC so that
+        // all the necessary data will be there when the segue happens.
+    }
 }

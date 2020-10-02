@@ -10,10 +10,17 @@ import UIKit
 
 class SkillVC: UIViewController {
 
+    var player : Player!
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        // The value of `player` was set up on the segue transition
+        // so this value has to be defined always.
+        print(player.desiredLeague)
     }
 
     override var prefersStatusBarHidden: Bool {
